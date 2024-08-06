@@ -2,7 +2,7 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
     event.preventDefault();
     
     const phoneNumber = document.getElementById('phoneNumber').value;
-    const apiUrl = `https://mobilephoneinfoapi.netlify.app/?number=${phoneNumber}`;
+    const apiUrl = `https://apilayer.com/?number=${phoneNumber}`;
     const apiKey = '19gysNayjmZ6UxDVqDiNFTEpHSwI7mZfE'; //to change
 
     document.getElementById('loading').classList.remove('hidden');
