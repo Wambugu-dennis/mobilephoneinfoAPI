@@ -2,7 +2,7 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
     event.preventDefault();
     
     const phoneNumber = document.getElementById('phoneNumber').value;
-    const apiKey = '19gysNayjmZ6UxDVqDiNFTEpHSwI7mZf';
+    const apiKey = '14tfmHnvhLItYMdDouOtM9eace7WPm9c';
     const apiUrl = `https://api.apilayer.com/number_verification/validate?number=${encodeURIComponent(phoneNumber)}`;
 
     var myHeaders = new Headers();
@@ -15,7 +15,12 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
     };
 
     fetch(apiUrl, requestOptions)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
         .then(data => {
             console.log("Response Data:", data);
             // Display the response data in the console or update the DOM as needed
