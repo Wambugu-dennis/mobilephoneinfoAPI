@@ -1,26 +1,15 @@
-
 document.getElementById('phoneForm').addEventListener('submit', function(event) {
     event.preventDefault();
     
     const phoneNumber = document.getElementById('phoneNumber').value;
-    const apiUrl = `https://api.apilayer.com/number_verification/validate?number=${phoneNumber}`;
     const apiKey = '19gysNayjmZ6UxDVqDiNFTEpHSwI7mZf';
+    const apiUrl = `https://api.apilayer.com/number_verification/validate?api_key=${apiKey}&number=${encodeURIComponent(phoneNumber)}`;
 
-    var myHeaders = new Headers();
-    myHeaders.append("apikey", apiKey);
-
-    var requestOptions = {
-        method: 'GET',
-        redirect: 'follow',
-        headers: myHeaders
-    };
-
-    console.log("Request Headers:", requestOptions.headers);
     console.log("API URL:", apiUrl);
 
     document.getElementById('spinner').style.display = 'block';
 
-    fetch(apiUrl, requestOptions)
+    fetch(apiUrl, { method: 'GET', redirect: 'follow' })
         .then(response => {
             document.getElementById('spinner').style.display = 'none';
             console.log("Response Status:", response.status);
@@ -44,7 +33,6 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
             document.getElementById('countryName').textContent = data.country_name;
             document.getElementById('carrier').textContent = data.carrier;
             document.getElementById('lineType').textContent = data.line_type;
-            document.getElementById('coordinates').textContent = `Latitude: ${data.location.lat}, Longitude: ${data.location.lng}`;
         })
         .catch(error => {
             document.getElementById('spinner').style.display = 'none';
