@@ -5,13 +5,16 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
     const apiUrl = `https://mobilephoneinfoapi.netlify.app/?number=${phoneNumber}`;
     const apiKey = '19gysNayjmZ6UxDVqDiNFTEpHSwI7mZfE'; //to change
 
+    document.getElementById('loading').classList.remove('hidden');
+
     fetch(apiUrl, {
         headers: {
-            'Authorization': `Bearer ${apiKey}`, // to Adjust based on how the API requires the key
+            'Authorization': `Bearer ${apiKey}`,
             'Content-Type': 'application/json'
         }
     })
     .then(response => {
+        document.getElementById('loading').classList.add('hidden');
         if (!response.ok) {
             throw new Error('Network response was not ok ' + response.statusText);
         }
@@ -31,6 +34,7 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
         document.getElementById('coordinates').textContent = `Latitude: ${data.Coordinates.Latitude}, Longitude: ${data.Coordinates.Longitude}`;
     })
     .catch(error => {
+        document.getElementById('loading').classList.add('hidden');
         console.error('Error fetching phone details:', error);
         alert('There was an error fetching the phone details. Please try again.');
     });
