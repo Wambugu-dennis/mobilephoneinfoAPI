@@ -3,13 +3,22 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
     
     const phoneNumber = document.getElementById('phoneNumber').value;
     const apiKey = '19gysNayjmZ6UxDVqDiNFTEpHSwI7mZf';
-    const apiUrl = `https://api.apilayer.com/number_verification/validate?api_key=${apiKey}&number=${encodeURIComponent(phoneNumber)}`;
+    const apiUrl = `https://api.apilayer.com/number_verification/validate?number=${encodeURIComponent(phoneNumber)}`;
 
     console.log("API URL:", apiUrl);
 
+    var myHeaders = new Headers();
+    myHeaders.append("apikey", apiKey);
+
+    var requestOptions = {
+        method: 'GET',
+        headers: myHeaders,
+        redirect: 'follow'
+    };
+
     document.getElementById('spinner').style.display = 'block';
 
-    fetch(apiUrl, { method: 'GET', redirect: 'follow' })
+    fetch(apiUrl, requestOptions)
         .then(response => {
             document.getElementById('spinner').style.display = 'none';
             console.log("Response Status:", response.status);
