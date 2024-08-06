@@ -14,6 +14,9 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
         headers: myHeaders
     };
 
+    console.log("Request Headers:", requestOptions.headers);
+    console.log("API URL:", apiUrl);
+
     document.getElementById('loading').classList.remove('hidden');
 
     fetch(apiUrl, requestOptions)
@@ -25,6 +28,7 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
             return response.json();
         })
         .then(data => {
+            console.log("Response Data:", data);
             document.getElementById('results').classList.remove('hidden');
             document.getElementById('valid').textContent = data.valid;
             document.getElementById('number').textContent = data.number;
