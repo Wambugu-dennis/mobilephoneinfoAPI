@@ -33,9 +33,9 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
         document.getElementById('lineType').textContent = data['Line type'];
         document.getElementById('coordinates').textContent = `Latitude: ${data.Coordinates.Latitude}, Longitude: ${data.Coordinates.Longitude}`;
     })
-    .catch(error => {
-        document.getElementById('loading').classList.add('hidden');
-        console.error('Error fetching phone details:', error);
-        alert('There was an error fetching the phone details. Please try again.');
-    });
+   .catch(error => {
+    document.getElementById('loading').classList.add('hidden');
+    console.error('Error fetching phone details:', error);
+    alert(`There was an error fetching the phone details: ${error.message}. Please try again.`);
+});
 });
