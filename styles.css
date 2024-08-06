@@ -16,10 +16,6 @@ body {
     width: 400px;
     text-align: center;
 }
-#loading {
-    font-size: 18px;
-    color: #007bff;
-    display: none;
 }
 
 h1, h2 {
@@ -58,3 +54,7 @@ button:hover {
 p {
     text-align: left;
 }
+#loading {
+    font-size: 18px;
+    color: #007bff;
+    display: none;
