@@ -16,7 +16,6 @@ body {
     width: 400px;
     text-align: center;
 }
-}
 
 h1, h2 {
     margin: 0 0 20px;
@@ -54,7 +53,10 @@ button:hover {
 p {
     text-align: left;
 }
+
+
 #loading {
     font-size: 18px;
     color: #007bff;
     display: none;
+}
