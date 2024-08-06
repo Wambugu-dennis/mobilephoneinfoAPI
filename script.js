@@ -43,7 +43,7 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
             document.getElementById('countryName').textContent = data.country_name;
             document.getElementById('carrier').textContent = data.carrier;
             document.getElementById('lineType').textContent = data.line_type;
-            document.getElementById('coordinates').textContent = `Latitude: ${data.location.lat}, Longitude: ${data.location.lng}`;
+            //document.getElementById('coordinates').textContent = `Latitude: ${data.location.lat}, Longitude: ${data.location.lng}`;
         })
         .catch(error => {
             document.getElementById('loading').classList.add('hidden');
