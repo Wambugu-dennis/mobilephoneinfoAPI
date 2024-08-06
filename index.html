@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phone Number Details</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Phone Number Details</h1>
+        <form id="phoneForm">
+            <input type="text" id="phoneNumber" placeholder="Enter phone number" required>
+            <button type="submit">Get Details</button>
+        </form>
+        <div id="results" class="hidden">
+            <h2>Results</h2>
+            <p><strong>Valid:</strong> <span id="valid"></span></p>
+            <p><strong>Number:</strong> <span id="number"></span></p>
+            <p><strong>Local format:</strong> <span id="localFormat"></span></p>
+            <p><strong>International format:</strong> <span id="intlFormat"></span></p>
+            <p><strong>Country prefix:</strong> <span id="countryPrefix"></span></p>
+            <p><strong>Country code:</strong> <span id="countryCode"></span></p>
+            <p><strong>Country name:</strong> <span id="countryName"></span></p>
+            <p><strong>Carrier:</strong> <span id="carrier"></span></p>
+            <p><strong>Line type:</strong> <span id="lineType"></span></p>
+            <p><strong>Coordinates:</strong> <span id="coordinates"></span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
