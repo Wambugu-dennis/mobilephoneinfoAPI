@@ -13,6 +13,8 @@
             <input type="text" id="phoneNumber" placeholder="Enter phone number" required>
             <button type="submit">Get Details</button>
         </form>
+        <!-- Add loading indicator here -->
+        <div id="loading" class="hidden">Loading...</div>
         <div id="results" class="hidden">
             <h2>Results</h2>
             <p><strong>Valid:</strong> <span id="valid"></span></p>
@@ -26,7 +28,6 @@
             <p><strong>Line type:</strong> <span id="lineType"></span></p>
             <p><strong>Coordinates:</strong> <span id="coordinates"></span></p>
         </div>
-        <div id="loading" class="hidden">Loading...</div>
     </div>
     <script src="script.js"></script>
 </body>
