@@ -2,12 +2,12 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
     event.preventDefault();
     
     const phoneNumber = document.getElementById('phoneNumber').value;
-    const apiUrl = `https://api.example.com/phone-info?number=${phoneNumber}`;
-    const apiKey = 'YOUR_API_KEY_HERE'; // Replace with your actual API key if needed
+    const apiUrl = `https://mobilephoneinfoapi.netlify.app/?number=${phoneNumber}`;
+    const apiKey = '19gysNayjmZ6UxDVqDiNFTEpHSwI7mZfE'; //to change
 
     fetch(apiUrl, {
         headers: {
-            'Authorization': `Bearer ${apiKey}`, // Adjust this line based on how the API requires the key
+            'Authorization': `Bearer ${apiKey}`, // to Adjust based on how the API requires the key
             'Content-Type': 'application/json'
         }
     })
