@@ -22,8 +22,12 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
     fetch(apiUrl, requestOptions)
         .then(response => {
             document.getElementById('loading').classList.add('hidden');
+            console.log("Response Status:", response.status);
+            console.log("Response Headers:", response.headers);
             if (!response.ok) {
-                throw new Error('Network response was not ok ' + response.statusText);
+                return response.text().then(text => {
+                    throw new Error(`Error: ${response.status} ${response.statusText} - ${text}`);
+                });
             }
             return response.json();
         })
@@ -59,6 +63,15 @@ var requestOptions = {
 };
 
 fetch("https://api.apilayer.com/number_verification/countries", requestOptions)
-  .then(response => response.text())
-  .then(result => console.log(result))
-  .catch(error => console.log('error', error));
+  .then(response => {
+      console.log("Countries Response Status:", response.status);
+      console.log("Countries Response Headers:", response.headers);
+      if (!response.ok) {
+          return response.text().then(text => {
+              throw new Error(`Error: ${response.status} ${response.statusText} - ${text}`);
+          });
+      }
+      return response.json();
+  })
+  .then(result => console.log("Countries Data:", result))
+  .catch(error => console.error('Error fetching countries:', error));
