@@ -3,7 +3,7 @@ document.getElementById('phoneForm').addEventListener('submit', function(event) 
     
     const phoneNumber = document.getElementById('phoneNumber').value;
     const apiUrl = `https://api.apilayer.com/number_verification/validate?number=${phoneNumber}`;
-    const apiKey = '14tfmHnvhLItYMdDouOtM9eace7WPm9c';
+    const apiKey = '10d2be88167fac898b86f041bc44fa04';
 
     var myHeaders = new Headers();
     myHeaders.append("apikey", apiKey);
